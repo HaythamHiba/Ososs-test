@@ -1,12 +1,12 @@
 import React from "react";
 import classes from "./Results.module.scss";
 import { useSearchAnimals } from "../../../api/animals";
-import BounceLoader from "react-spinners/BounceLoader";
+import Loader from "../loader/Loader";
 
 
 
 const Results = ({ search,clicked }) => {
-  const { data, isLoading, isError } = useSearchAnimals(search);
+  const { data, loading, error } = useSearchAnimals(search);
   const results = data?data : [];
 
  function getHighlightedText(name, search) {
@@ -22,14 +22,14 @@ const Results = ({ search,clicked }) => {
   if (!search) {
     return null;
   }
-  if (isLoading) {
+  if (loading) {
     return (
       <div className={classes.secondary_container}>
-        <BounceLoader size={30} color="black" />
+        <Loader  />
       </div>
     );
   }
-  if (isError) {
+  if (error) {
 
     return (
       <div className={classes.secondary_container}>

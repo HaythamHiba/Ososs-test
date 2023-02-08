@@ -3,24 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './views/pages/Home';
 import reportWebVitals from './reportWebVitals';
-import { QueryClient, QueryClientProvider } from "react-query";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retryDelay: 8000,
-  
-    },
-  },
-});
+
 root.render(
   <React.StrictMode>
-        <QueryClientProvider client={queryClient}>
 
     <App />
-    </QueryClientProvider>
   </React.StrictMode>
 );
 

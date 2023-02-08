@@ -1,10 +1,3 @@
-import { useGetQuery } from "./helper/useGetQuery";
+import { useFetch } from "./helper/useFetch";
 
-export const useSearchAnimals=(search)=>useGetQuery("ANIMALS",`https://api.api-ninjas.com/v1/animals`,{
-    params:{
-        name:search
-    },
-    queryOptions: {
-        enabled: !!search,
-      },
-})
+export const useSearchAnimals=(search)=>useFetch(`https://api.api-ninjas.com/v1/animals`,search)
